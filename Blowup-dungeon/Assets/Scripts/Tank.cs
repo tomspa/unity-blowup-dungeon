@@ -1,11 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tank : MonoBehaviour
 {
+    public Gun gun;
     public Track trackLeft;
     public Track trackRight;
+    public Rigidbody2D tankRigidBody;
 
     public string keyForward;
     public string keyBackward;
@@ -81,5 +81,10 @@ public class Tank : MonoBehaviour
     {
         trackLeft.animator.SetBool("isMoving", false);
         trackRight.animator.SetBool("isMoving", false);
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        gun.GetComponent<Rigidbody2D>().SendMessage("OnCollisionStay2D", collision);
     }
 }
