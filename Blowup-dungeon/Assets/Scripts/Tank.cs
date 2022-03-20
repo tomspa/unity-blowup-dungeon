@@ -116,7 +116,7 @@ public class Tank : MonoBehaviour
 
     private void moveTankLeft()
     {
-        if (startTime + 4 > Time.time)
+        if (startTime + 3 > Time.time)
         {
             transform.Translate(0f, 0.012f, 0f);
         }
@@ -124,6 +124,17 @@ public class Tank : MonoBehaviour
         {
             locked = false;
             trackStop();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+
+        if (collision.gameObject.tag == "QuestGiver")
+        {
+            Debug.Log("ce");
+            collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
         }
     }
 }

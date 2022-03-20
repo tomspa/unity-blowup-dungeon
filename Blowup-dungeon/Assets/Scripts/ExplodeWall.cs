@@ -9,7 +9,6 @@ public class ExplodeWall : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("hit");
             gameObject.SetActive(false);
         }
     }
