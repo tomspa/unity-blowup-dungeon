@@ -5,17 +5,29 @@ using UnityEngine.UI;
 
 public class QuestGiver : MonoBehaviour
 {
-    public Quest1 Quest;
-    public Tank Tank;
-    public GameObject QuestWindow;
+    public Quest quest;
+    public Tank tank;
+    public GameObject questWindow;
 
     public Text text;
     public Text title;
 
     public void OpenQuestWindow()
     {
-        QuestWindow.SetActive(true);
-        title.text = Quest.title;
-        text.text = Quest.description;
+        if (questWindow.activeInHierarchy == false)
+        {
+            questWindow.SetActive(true);
+            Shooting.locked = true;
+            title.text = quest.title;
+            text.text = quest.description;
+        }
+    }
+
+    public void AcceptQuest()
+    {
+        questWindow.SetActive(false);
+        quest.isActive = true;
+        Shooting.locked = false;
+        tank.quest = quest;
     }
 }

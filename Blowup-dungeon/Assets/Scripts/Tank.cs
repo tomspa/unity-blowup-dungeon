@@ -35,6 +35,7 @@ public class Tank : MonoBehaviour
     public int health = 100;
     public int maxHealth = 100;
 
+    public Quest quest;
 
     void Start()
     {
@@ -127,13 +128,10 @@ public class Tank : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-
         if (collision.gameObject.tag == "QuestGiver")
         {
-            Debug.Log("ce");
             collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
         }
     }

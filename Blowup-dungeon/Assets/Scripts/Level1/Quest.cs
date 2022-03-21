@@ -1,23 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
-public abstract class Quest
+[System.Serializable]
+public class Quest
 {
-    protected bool finished;
-    protected Level1QuestSystem level1QuestSystem;
+    public bool finished;
+    public string title;
+    public string description;
+    public bool isActive;
 
-    public bool isFinished()
+    public void Start()
     {
-        return finished;
     }
-
-    public Quest(Level1QuestSystem lvl1QuestSystem)
-    {
-        level1QuestSystem = lvl1QuestSystem;
-        finished = false;
-    }
-
-    public abstract void Start();
-
 }
