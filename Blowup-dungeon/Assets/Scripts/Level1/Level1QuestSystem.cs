@@ -34,7 +34,6 @@ public class Level1QuestSystem : MonoBehaviour
     private void startFirstQuest()
     {
         wayPointer.Show();
-        quest1.Start();
     }
 
     // Update is called once per frame

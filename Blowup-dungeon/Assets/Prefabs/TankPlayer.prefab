@@ -53,6 +53,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 3674441069055082572}
   bulletPrefab: {fileID: 9134671811444009375, guid: f022ca07ab2efe54baaad984b0820dbc, type: 3}
   bulletForce: 20
+  fireDelay: 0.2
 --- !u!95 &605044408714293318
 Animator:
   serializedVersion: 3
@@ -399,7 +400,7 @@ GameObject:
   - component: {fileID: 6737700027938354336}
   m_Layer: 0
   m_Name: TankPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -442,6 +443,19 @@ MonoBehaviour:
   keyBackward: s
   keyRight: d
   keyLeft: a
+  doIntro: 0
+  health: 100
+  maxHealth: 100
+  quest:
+    finished: 0
+    title: 
+    description: 
+    isActive: 0
+    goal:
+      goalType: 0
+      requiredAmount: 0
+      currentAmount: 0
+    targets: []
 --- !u!61 &6737700027938354342
 BoxCollider2D:
   m_ObjectHideFlags: 0

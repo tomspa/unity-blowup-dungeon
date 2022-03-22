@@ -45,12 +45,11 @@ public class Tank : MonoBehaviour
             startTime = Time.time;
         }
     }
-            
 
     // Update is called once per frame
     void Update()
     {
-        if (!locked)
+        if (!locked && keyLeft != null)
         {
             // Left
             rotateLeft = (Input.GetKeyDown(keyLeft)) ? true : rotateLeft;

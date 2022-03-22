@@ -8,13 +8,16 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     public AudioClip audioClip;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(audioClip, transform.position);
+        if (collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Explosion")
+        {
+            AudioSource.PlayClipAtPoint(audioClip, transform.position);
 
-        GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+            GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
 
-        Destroy(effect, 5f);
-        Destroy(gameObject);
+            Destroy(effect, 5f);
+            Destroy(gameObject);
+        }
     }
 }

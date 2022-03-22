@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class ShootingTarget : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public GameObject hitEffect;
+    public bool locked = true;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (!locked && (collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Explosion"))
         {
-            Destroy(this.gameObject);
+            if (hitEffect != null)
+            {
+                GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
+                Destroy(effect, 5f);
+            }
+
+            gameObject.SendMessageUpwards("GotTarget", SendMessageOptions.RequireReceiver);
+            Destroy(gameObject);
         }
     }
 }

@@ -12,9 +12,11 @@ public class QuestGiver : MonoBehaviour
     public Text text;
     public Text title;
 
+    public GameObject indicator;
+
     public void OpenQuestWindow()
     {
-        if (questWindow.activeInHierarchy == false)
+        if (questWindow.activeInHierarchy == false && !quest.isActive)
         {
             questWindow.SetActive(true);
             Shooting.locked = true;
@@ -29,5 +31,7 @@ public class QuestGiver : MonoBehaviour
         quest.isActive = true;
         Shooting.locked = false;
         tank.quest = quest;
+        indicator.SetActive(false);
+        quest.Setup();
     }
 }
