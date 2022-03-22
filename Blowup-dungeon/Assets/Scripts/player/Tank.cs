@@ -32,10 +32,12 @@ public class Tank : MonoBehaviour
     float rotateDeceleration = 10f;
     float rotateSpeedMax = 130f;
 
-    public int health = 100;
-    public int maxHealth = 100;
+    public int health = 5;
+    public int maxHealth = 5;
 
     public Quest quest;
+
+    public HealthBar healthBar;
 
     void Start()
     {
@@ -44,9 +46,10 @@ public class Tank : MonoBehaviour
             locked = true;
             startTime = Time.time;
         }
+
+        healthBar.SetMaxHealth(maxHealth);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!locked && keyLeft != null)
@@ -132,6 +135,14 @@ public class Tank : MonoBehaviour
         if (collision.gameObject.tag == "QuestGiver")
         {
             collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
+            Debug.Log("damage");
+            TakeDamage(1);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        healthBar.SetHealth(health);
     }
 }
