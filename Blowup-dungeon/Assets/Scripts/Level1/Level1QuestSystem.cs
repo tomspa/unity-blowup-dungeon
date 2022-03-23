@@ -13,13 +13,11 @@ public class Level1QuestSystem : MonoBehaviour
     public Vector3 questPoint2;
     public Vector3 questPoint3;
 
-    private Quest quest1;
+    public Quest quest1;
 
     // Start is called before the first frame update
     void Start()
     {
-        quest1 = new Quest();
-
         questPoint1 = new Vector3(2.71f, 7.87f);
         questPoint2 = new Vector3(-36.32f, -0.38f);
 

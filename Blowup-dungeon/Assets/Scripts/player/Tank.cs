@@ -34,10 +34,12 @@ public class Tank : MonoBehaviour
 
     public int health = 5;
     public int maxHealth = 5;
+    public bool infiniteHealth = false;
+    public bool movefast = false;
 
     public Quest quest;
-
     public HealthBar healthBar;
+    public GameObject deathWindow;
 
     void Start()
     {
@@ -47,11 +49,14 @@ public class Tank : MonoBehaviour
             startTime = Time.time;
         }
 
-        healthBar.SetMaxHealth(maxHealth);
+        if (healthBar != null) healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
     {
+        if (movefast) moveSpeedMax = 6f;
+        else moveSpeedMax = 2.5f;
+
         if (!locked && keyLeft != null)
         {
             // Left
@@ -135,14 +140,22 @@ public class Tank : MonoBehaviour
         if (collision.gameObject.tag == "QuestGiver")
         {
             collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
-            Debug.Log("damage");
-            TakeDamage(1);
+            TakeDamage(6);
         }
     }
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        healthBar.SetHealth(health);
+        if (!infiniteHealth)
+        {
+            health -= damage;
+            healthBar.SetHealth(health);
+
+            if (health <= 0)
+            {
+                deathWindow.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
     }
 }

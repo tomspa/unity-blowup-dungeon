@@ -9,6 +9,7 @@ public class QuestGoal
 
     public int requiredAmount;
     public int currentAmount;
+    public GameObject progTextWindow;
 
     public bool isReached()
     {

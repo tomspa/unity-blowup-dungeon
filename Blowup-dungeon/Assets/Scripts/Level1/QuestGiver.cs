@@ -13,11 +13,13 @@ public class QuestGiver : MonoBehaviour
     public Text title;
 
     public GameObject indicator;
-
+    public GameObject arrow;
+    
     public void OpenQuestWindow()
     {
         if (questWindow.activeInHierarchy == false && !quest.isActive)
         {
+            Time.timeScale = 0.0f;
             questWindow.SetActive(true);
             Shooting.locked = true;
             title.text = quest.title;
@@ -27,11 +29,13 @@ public class QuestGiver : MonoBehaviour
 
     public void AcceptQuest()
     {
+        Time.timeScale = 1f;
         questWindow.SetActive(false);
         quest.isActive = true;
         Shooting.locked = false;
         tank.quest = quest;
         indicator.SetActive(false);
+        arrow.SetActive(false);
         quest.Setup();
     }
 }

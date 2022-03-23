@@ -6,6 +6,7 @@ public class ShootingTarget : MonoBehaviour
 {
     public GameObject hitEffect;
     public bool locked = true;
+    public Quest quest;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +18,8 @@ public class ShootingTarget : MonoBehaviour
                 Destroy(effect, 5f);
             }
 
-            gameObject.SendMessageUpwards("GotTarget", SendMessageOptions.RequireReceiver);
+            quest.GotTarget();
+
             Destroy(gameObject);
         }
     }

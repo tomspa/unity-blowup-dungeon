@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 79224845080883227}
   - component: {fileID: 2213913443073830748}
   - component: {fileID: 2744452074670867533}
-  - component: {fileID: 4809841809074485552}
   - component: {fileID: 785702096543987002}
   - component: {fileID: -248332396073091069}
+  - component: {fileID: 2161830004823400505}
   m_Layer: 0
   m_Name: LightShell
   m_TagString: Bullet
@@ -112,20 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13830161, y: 0.12818754}
   m_EdgeRadius: 0
---- !u!114 &4809841809074485552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9134671811444009375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ac198304be02a94093a8ba1b53c83cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitEffect: {fileID: 1098063041184731074, guid: fd7d57f8169acc1419164222fe040690, type: 3}
-  audioClip: {fileID: 8300000, guid: bd424c0820ad9de4a80526165e883930, type: 3}
 --- !u!82 &785702096543987002
 AudioSource:
   m_ObjectHideFlags: 0
@@ -243,3 +229,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2161830004823400505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9134671811444009375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac198304be02a94093a8ba1b53c83cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitEffect: {fileID: 1098063041184731074, guid: fd7d57f8169acc1419164222fe040690, type: 3}
+  audioClip: {fileID: 8300000, guid: bd424c0820ad9de4a80526165e883930, type: 3}
+  cam: {fileID: 0}
+  explodePoint: {x: 0, y: 0, z: 0}
