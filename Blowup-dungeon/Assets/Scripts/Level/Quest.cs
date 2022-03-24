@@ -1,3 +1,4 @@
+using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,7 @@ public class Quest : MonoBehaviour
 
         foreach (ShootingTarget st in targets)
         {
+            st.GetComponent<AIPath>().canMove = true;
             st.locked = false;
         }
     }
