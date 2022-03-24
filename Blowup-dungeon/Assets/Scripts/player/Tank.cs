@@ -64,8 +64,6 @@ public class Tank : MonoBehaviour
             locked = true;
             startTime = Time.time;
         }
-
-        Debug.Log(health);
     }
 
     void Update()
@@ -156,6 +154,14 @@ public class Tank : MonoBehaviour
         if (collision.gameObject.tag == "QuestGiver")
         {
             collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(1);
         }
     }
 

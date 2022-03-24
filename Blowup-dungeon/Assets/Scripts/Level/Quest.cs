@@ -25,7 +25,9 @@ public class Quest : MonoBehaviour
 
         foreach (ShootingTarget st in targets)
         {
-            st.GetComponent<AIPath>().canMove = true;
+            AIPath path = st.GetComponent<AIPath>();
+            if (path != null) path.canMove = true;
+
             st.locked = false;
         }
     }
