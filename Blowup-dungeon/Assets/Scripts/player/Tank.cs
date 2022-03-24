@@ -156,7 +156,6 @@ public class Tank : MonoBehaviour
         if (collision.gameObject.tag == "QuestGiver")
         {
             collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
-            TakeDamage(4);
         }
     }
 
