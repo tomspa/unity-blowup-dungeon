@@ -5,7 +5,6 @@ using UnityEngine;
 public class WayPointer : MonoBehaviour
 {
     public Transform pointer;
-    public GameObject waypoint;
     private Vector3 nextPoint;
     public GameObject target;
 

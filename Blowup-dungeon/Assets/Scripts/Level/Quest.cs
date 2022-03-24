@@ -13,15 +13,15 @@ public class Quest : MonoBehaviour
     public GameObject progTextWindow;
     public QuestGoal goal;
     public List<ShootingTarget> targets;
+    public GameObject questFinishedWindow;
 
     public Text status;
 
     public void Setup()
     {
         progTextWindow.SetActive(true);
-        //status = progTextWindow.GetComponent<Text>();
-        //status.text = goal.requiredAmount + " of " + goal.currentAmount;
-        
+        status.text = goal.currentAmount + " of " + goal.requiredAmount;
+
         foreach (ShootingTarget st in targets)
         {
             st.locked = false;
@@ -31,18 +31,15 @@ public class Quest : MonoBehaviour
     public void GotTarget()
     {
         goal.ItemDestroyed();
-        //status.text = goal.requiredAmount + " of " + goal.currentAmount;
+        status.text = goal.currentAmount + " of " + goal.requiredAmount;
         isFinished();
     }
 
-    public bool isFinished()
+    public void isFinished()
     {
         if (goal.isReached())
         {
-
-            return true;
+            questFinishedWindow.SetActive(true);
         }
-
-        return false;
     }
 }

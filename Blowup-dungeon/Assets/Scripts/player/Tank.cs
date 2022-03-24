@@ -40,16 +40,32 @@ public class Tank : MonoBehaviour
     public Quest quest;
     public HealthBar healthBar;
     public GameObject deathWindow;
+    public GamePrefs gamePrefs;
 
     void Start()
     {
+        if (gamePrefs != null)
+        {
+            if (gamePrefs.GetGameLoadType() == GameLoadType.Resume)
+            {
+                health = gamePrefs.GetPlayerHealth();
+            }
+            else gamePrefs.SetPlayerHealth(health);
+        }
+
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(maxHealth);
+            healthBar.SetHealth(health);
+        }
+
         if (doIntro)
         {
             locked = true;
             startTime = Time.time;
         }
 
-        if (healthBar != null) healthBar.SetMaxHealth(maxHealth);
+        Debug.Log(health);
     }
 
     void Update()
@@ -140,15 +156,16 @@ public class Tank : MonoBehaviour
         if (collision.gameObject.tag == "QuestGiver")
         {
             collision.gameObject.GetComponent<QuestGiver>().OpenQuestWindow();
-            TakeDamage(6);
+            TakeDamage(4);
         }
     }
 
     public void TakeDamage(int damage)
     {
         if (!infiniteHealth)
-        {
+        {  
             health -= damage;
+            gamePrefs.SetPlayerHealth(health);
             healthBar.SetHealth(health);
 
             if (health <= 0)

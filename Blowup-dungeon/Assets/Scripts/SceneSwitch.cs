@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
 {
-    public int SceneNumber;
+    public int sceneNumber;
+    public GamePrefs gamePrefs;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,7 +14,7 @@ public class SceneSwitch : MonoBehaviour
     public void Switch()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneNumber);
+        SceneManager.LoadScene(sceneNumber);
     }
 
     public void DelayedSwitch()

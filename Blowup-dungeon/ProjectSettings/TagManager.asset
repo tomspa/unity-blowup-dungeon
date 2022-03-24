@@ -9,6 +9,7 @@ TagManager:
   - QuestGiver
   - Explosion
   - QuestItem
+  - Music
   layers:
   - Default
   - TransparentFX
