@@ -56778,7 +56778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6737700027938354339, guid: b2041b7adfbc70040a612e2e120ac496, type: 3}
       propertyPath: doIntro
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6737700027938354339, guid: b2041b7adfbc70040a612e2e120ac496, type: 3}
       propertyPath: movefast

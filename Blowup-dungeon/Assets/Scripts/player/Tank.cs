@@ -130,7 +130,7 @@ public class Tank : MonoBehaviour
 
     private void moveTankLeft()
     {
-        if (startTime + 3 > Time.time)
+        if (startTime + 1 > Time.time)
         {
             transform.Translate(0f, 0.012f, 0f);
         }
