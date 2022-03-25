@@ -15,6 +15,11 @@ public class GlobalAudio : MonoBehaviour
     {
         MusicObjects = GameObject.FindGameObjectsWithTag("Music");
 
+        onlyKeepFirst();
+    }
+
+    private void onlyKeepFirst()
+    {
         if (MusicObjects.Length > 1)
         {
             Destroy(MusicObjects[1]);

@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
     public Tank tank;
+    public GamePrefs gamePrefs;
+    public Toggle healthToggle;
+    public Toggle speedyToggle;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
-    }
+        if (gamePrefs.GetSpeedy() > 0)
+        {
+            speedyToggle.isOn = true;
+        }
+        else {
+            speedyToggle.isOn = false;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (gamePrefs.GetInfinHealth() > 0) healthToggle.isOn = true;
+        else healthToggle.isOn = false;
     }
 
     public void ClickResume()
@@ -27,10 +33,15 @@ public class Options : MonoBehaviour
     public void InfiniteHealth()
     {
         tank.infiniteHealth = !tank.infiniteHealth;
+        if (tank.infiniteHealth) gamePrefs.SetInfinHealth(1);
+        else gamePrefs.SetInfinHealth(0);
+
     }
 
     public void SpeedyGonzales()
     {
-        tank.movefast = !tank.movefast; 
+        tank.movefast = !tank.movefast;
+        if (tank.movefast) gamePrefs.SetSpeedy(1);
+        else gamePrefs.SetSpeedy(0);
     }
 }

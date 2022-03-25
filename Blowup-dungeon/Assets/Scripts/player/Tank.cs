@@ -13,7 +13,8 @@ public class Tank : MonoBehaviour
     public string keyLeft;
     public bool doIntro;
 
-    bool locked = false;
+    public bool locked = false;
+    public bool isDummy = false;
     float startTime;
 
     bool moveForwards = false;
@@ -44,15 +45,6 @@ public class Tank : MonoBehaviour
 
     void Start()
     {
-        if (gamePrefs != null)
-        {
-            if (gamePrefs.GetGameLoadType() == GameLoadType.Resume)
-            {
-                health = gamePrefs.GetPlayerHealth();
-            }
-            else gamePrefs.SetPlayerHealth(health);
-        }
-
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(maxHealth);

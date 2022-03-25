@@ -15,7 +15,7 @@ public class Quest : MonoBehaviour
     public QuestGoal goal;
     public List<ShootingTarget> targets;
     public GameObject questFinishedWindow;
-
+    
     public Text status;
 
     public void Setup()

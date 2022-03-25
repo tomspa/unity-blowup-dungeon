@@ -34,6 +34,28 @@ public class GamePrefs : MonoBehaviour
     {
         return PlayerPrefs.GetInt("Scene");
     }
+
+    public void SetSpeedy(int speedyOn)
+    {
+        PlayerPrefs.SetInt("Speedy", speedyOn);
+    }
+
+    public int GetSpeedy()
+    {
+        return PlayerPrefs.GetInt("Speedy");
+    }
+
+    public void SetInfinHealth(int infinHealth)
+    {
+        PlayerPrefs.SetInt("InfinHealth", infinHealth);
+    }
+
+    public int GetInfinHealth()
+    {
+        return PlayerPrefs.GetInt("InfinHealth");
+    }
+
+
 }
 
 public enum GameLoadType

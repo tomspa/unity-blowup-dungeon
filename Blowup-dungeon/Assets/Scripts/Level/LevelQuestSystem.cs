@@ -7,6 +7,7 @@ using UnityEngine;
 public class LevelQuestSystem : MonoBehaviour
 {
     public GameObject waypoint;
+    public GameObject pointer;
     private WayPointer wayPointer;
     public GameObject target;
     public Vector3 questPoint1;
@@ -15,6 +16,7 @@ public class LevelQuestSystem : MonoBehaviour
     public GameObject questFinishedWindow;
     public GameObject questProgressWindow;
     public bool startWithDelay;
+    public GameObject onlyTargetCircle;
 
     private int currentQuest = 0;
     private Vector3[] quests = new Vector3[4];
@@ -51,6 +53,8 @@ public class LevelQuestSystem : MonoBehaviour
         wayPointer.SetPoint(quests[currentQuest]);
         questFinishedWindow.SetActive(false);
         questProgressWindow.SetActive(false);
+        if (pointer != null) pointer.SetActive(true);
         wayPointer.Show();
+        if (onlyTargetCircle != null) onlyTargetCircle.SetActive(false); 
     }
 }
