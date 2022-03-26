@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     public Vector3 explodePoint;
 
-    public void Start() 
+    public void Start()
     {
         cam = FindObjectOfType<Camera>();
         tank = FindObjectOfType<Tank>();
@@ -28,7 +28,10 @@ public class Bullet : MonoBehaviour
 
     public void Update()
     {
-        if (explodePoint != null && (cam.transform.position.x - tank.transform.position.x) < 2  && (cam.transform.position.y - tank.transform.position.y) < 2)
+        if (explodePoint != null
+            &&
+            (cam.transform.position.x - tank.transform.position.x) < 2 && 
+            (cam.transform.position.y - tank.transform.position.y) < 2)
         {
             float exlodeDist = Vector2.Distance(explodePoint, cam.transform.position);
             float bulletDist = Vector2.Distance(transform.position, cam.transform.position);
@@ -43,7 +46,6 @@ public class Bullet : MonoBehaviour
     public void Explode()
     {
         AudioSource.PlayClipAtPoint(audioClip, transform.position);
-
         GameObject effect = Instantiate(hitEffect, transform.position, Quaternion.identity);
 
         Destroy(effect, 0.5f);

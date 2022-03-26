@@ -14,7 +14,6 @@ public class Tank : MonoBehaviour
     public bool doIntro;
 
     public bool locked = false;
-    public bool isDummy = false;
     float startTime;
 
     bool moveForwards = false;
@@ -45,6 +44,15 @@ public class Tank : MonoBehaviour
 
     void Start()
     {
+        if (gamePrefs != null)
+        {
+            if (gamePrefs.GetSpeedy() > 0) movefast = true;
+            else movefast = false;
+
+            if (gamePrefs.GetInfinHealth() > 0) infiniteHealth = true;
+            else infiniteHealth = false;
+        }
+
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(maxHealth);

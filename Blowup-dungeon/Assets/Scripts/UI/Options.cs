@@ -27,11 +27,13 @@ public class Options : MonoBehaviour
     public void ClickResume()
     {
         Time.timeScale = 1f;
-        gameObject.SetActive(false);
+        transform.position = new Vector3(-1000, -1000, 1);
     }
 
+    
     public void InfiniteHealth()
     {
+        Debug.Log("healthhh");
         tank.infiniteHealth = !tank.infiniteHealth;
         if (tank.infiniteHealth) gamePrefs.SetInfinHealth(1);
         else gamePrefs.SetInfinHealth(0);
@@ -40,6 +42,7 @@ public class Options : MonoBehaviour
 
     public void SpeedyGonzales()
     {
+        Debug.Log("fasst");
         tank.movefast = !tank.movefast;
         if (tank.movefast) gamePrefs.SetSpeedy(1);
         else gamePrefs.SetSpeedy(0);

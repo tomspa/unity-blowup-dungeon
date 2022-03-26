@@ -31907,6 +31907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsWindow: {fileID: 1950074127}
+  cam: {fileID: 519420031}
 --- !u!4 &545516546
 Transform:
   m_ObjectHideFlags: 0
@@ -53971,7 +53972,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4802068648894761696, guid: 2754a5847cb9b0d4cb6549e9c5538dd7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1280
+      value: 8858
       objectReference: {fileID: 0}
     - target: {fileID: 4802068648894761696, guid: 2754a5847cb9b0d4cb6549e9c5538dd7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -53995,7 +53996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4802068648894761697, guid: 2754a5847cb9b0d4cb6549e9c5538dd7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4802068649156817404, guid: 2754a5847cb9b0d4cb6549e9c5538dd7, type: 3}
       propertyPath: m_AnchorMax.x
